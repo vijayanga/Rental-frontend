@@ -1,33 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { TextField, Button, Typography, Box, Container } from "@mui/material";
+import {
+  TextField,
+  Button,
+  MenuItem,
+  Select,
+  InputLabel,
+  FormControl,
+  Typography,
+  Box,
+  Container,
+} from "@mui/material";
 
-function Login() {
+function Signup() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const [role, setRole] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/login",
-        { email, password }
+        "http://localhost:5000/api/users/submit",
+        { name, email, password, role }
       );
-      const { role } = response.data;
-
-      // Navigate based on user role
-      if (role === "admin") {
-        navigate("/admin");
-      } else if (role === "shopowner") {
-        navigate("/seller");
-      } else {
-        navigate("/buyer");
-      }
+      alert(response.data.message);
     } catch (error) {
-      alert("Invalid credentials");
+      alert("Error creating user");
     }
   };
   return (
@@ -41,9 +41,19 @@ function Login() {
         }}
       >
         <Typography variant="h5" gutterBottom>
-          Login
+          Signup
         </Typography>
         <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+          <TextField
+            label="Name"
+            type="text"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
           <TextField
             label="Email"
             type="email"
@@ -64,6 +74,18 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <FormControl fullWidth margin="normal" required>
+            <InputLabel>Role</InputLabel>
+            <Select
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              label="Role"
+            >
+              <MenuItem value="customer">Customer</MenuItem>
+              <MenuItem value="shopowner">Shop Owner</MenuItem>
+              <MenuItem value="admin">Admin</MenuItem>
+            </Select>
+          </FormControl>
           <Button
             variant="contained"
             color="primary"
@@ -71,12 +93,11 @@ function Login() {
             type="submit"
             sx={{ marginTop: 2 }}
           >
-            Login
+            Signup
           </Button>
         </form>
       </Box>
     </Container>
   );
 }
-
-export default Login;
+export default Signup;
