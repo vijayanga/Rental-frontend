@@ -4,6 +4,7 @@ import DashboardSeller from "../seller/Dashboard";
 import DashboardAdmin from "../admin/Dashboard";
 import Login from "../Common/login";
 import Signup from "../Common/signup";
+import PropertyListingPage from "../seller/PropertyListingPage";
 
 const router = createBrowserRouter([
   { path: "/buyer", element: <DashboardBuyer /> },
@@ -11,6 +12,7 @@ const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
   { path: "/signup", element: <Signup /> },
   { path: "/admin", element: <DashboardAdmin /> },
+  { path: "/properties", element: <PropertyListingPage /> }, // Property listing page
 ]);
 
 export default router;
