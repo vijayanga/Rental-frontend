@@ -37,7 +37,11 @@ const PropertyListingPage = () => {
   };
 
   return (
-    <Container>
+    <Container
+      maxWidth={false}
+      disableGutters
+      sx={{ px: 3 }} // px: 2 sets horizontal padding, adjust as needed (e.g., px: 0 for no padding)
+    >
       <Typography variant="h4" gutterBottom>
         Property Listings
       </Typography>
@@ -57,18 +61,20 @@ const PropertyListingPage = () => {
           <Typography variant="h5">Available Properties</Typography>
           <Grid container spacing={3}>
             {properties.map((property) => (
-              <Grid item xs={12} sm={6} md={4} key={property._id}>
+              <Grid item xs={12} sm={6} md={3} key={property._id}>
                 <Card
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    height: "100%",
+                    width: 350, // Fixed card width
+                    height: 400,
                   }}
                 >
                   {property.image && (
                     <CardMedia
                       component="img"
                       height="200"
+                      width="100%" // Ensure the image width spans 100% of its container
                       image={property.image} // Display the property image
                       alt="Property Image"
                       sx={{ objectFit: "cover" }} // Ensures the image covers the area without stretching
