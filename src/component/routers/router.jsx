@@ -5,7 +5,6 @@ import DashboardAdmin from "../admin/Dashboard";
 import Login from "../Common/login";
 import Signup from "../Common/signup";
 import PropertyListingPage from "../seller/PropertyListingPage";
-import PropertyDetailPage from "../seller/PropertyDetailPage";
 
 import EditDeletePropertyPage from "../seller/EditDeletePropertyPage";
 
@@ -16,8 +15,8 @@ const router = createBrowserRouter([
   { path: "/signup", element: <Signup /> },
   { path: "/admin", element: <DashboardAdmin /> },
   { path: "/properties", element: <PropertyListingPage /> },
-  { path: "/property/:id", element: <PropertyDetailPage /> },
-  { path: "/edit-delete-property/:id", element: <EditDeletePropertyPage /> }, // New route // Property listing page
+
+  { path: "/edit-delete-property", element: <EditDeletePropertyPage /> }, // New route // Property listing page
 ]);
 
 export default router;
