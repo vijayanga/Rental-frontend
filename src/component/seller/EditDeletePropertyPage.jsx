@@ -182,7 +182,7 @@ const PropertyListingPage = () => {
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    width: "250",
+                    width: 300,
                     height: 350,
                     background: "#fff",
                     borderRadius: 3,

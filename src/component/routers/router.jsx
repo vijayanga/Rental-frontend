@@ -6,7 +6,7 @@ import Login from "../Common/login";
 import Signup from "../Common/signup";
 import PropertyListingPage from "../../pages/seller/Profertylist";
 
-import EditDeletePropertyPage from "../seller/EditDeletePropertyPage";
+import EditDeletePropertyPage from "../../pages/seller/Profertyedit";
 
 const router = createBrowserRouter([
   { path: "/buyer", element: <DashboardBuyer /> },
