@@ -4,7 +4,7 @@ import DashboardSeller from "../seller/Dashboard";
 import DashboardAdmin from "../admin/Dashboard";
 import Login from "../Common/login";
 import Signup from "../Common/signup";
-import PropertyListingPage from "../seller/PropertyListingPage";
+import PropertyListingPage from "../../pages/seller/Profertylist";
 
 import EditDeletePropertyPage from "../seller/EditDeletePropertyPage";
 
